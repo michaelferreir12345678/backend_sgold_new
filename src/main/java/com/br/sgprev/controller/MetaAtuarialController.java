@@ -2,7 +2,7 @@ package com.br.sgprev.controller;
 
 import com.br.sgprev.entity.MetaAtuarial;
 import com.br.sgprev.service.MetaAtuarialService;
-import jakarta.websocket.server.PathParam;
+//import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
