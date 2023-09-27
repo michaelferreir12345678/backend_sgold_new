@@ -5,6 +5,7 @@ import com.br.sgprev.repository.MetaAtuarialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,10 +19,12 @@ public class MetaAtuarialService {
     }
 
     public MetaAtuarial inserir(MetaAtuarial meta){
+        meta.setDataCriacao(new Date());
         return metaAtuarialRepository.save(meta);
     }
 
     public MetaAtuarial alterar(MetaAtuarial meta){
+        meta.setDataAtualizacao(new Date());
         return metaAtuarialRepository.saveAndFlush(meta);
     }
 

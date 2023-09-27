@@ -2,19 +2,11 @@ package com.br.sgprev.entity;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -27,13 +19,17 @@ public class MetaAtuarial implements Serializable {
 	@SequenceGenerator(name="SEQ_META_ATUARIAL", sequenceName="SQ_META_ATUARIAL", allocationSize=1)	
 	@Column(name = "SEQ_META_ATUARIAL")	
 	private java.lang.Long id;
-	
+
 	@Column(name = "DAT_META")
 	private java.util.Date dataInicio;
 	@Column(name = "COD_INDICE")
 	private java.lang.Integer indice;
 	@Column(name = "VLR_META_ADC")
 	private java.math.BigDecimal valorAdicional;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataCriacao;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataAtualizacao;
 	@Transient
 	private String nomeIndice;
 	@Transient
@@ -151,6 +147,22 @@ public class MetaAtuarial implements Serializable {
 
 	public void setRetornoDesejado(java.math.BigDecimal retornoDesejado) {
 		this.retornoDesejado = retornoDesejado;
+	}
+
+	public Date getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public Date getDataAtualizacao() {
+		return dataAtualizacao;
+	}
+
+	public void setDataAtualizacao(Date dataAtualizacao) {
+		this.dataAtualizacao = dataAtualizacao;
 	}
 
 	@Override

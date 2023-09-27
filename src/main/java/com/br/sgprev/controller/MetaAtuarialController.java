@@ -16,26 +16,28 @@ public class MetaAtuarialController {
     @Autowired
     private MetaAtuarialService metaAtuarialService;
 
+
+    @CrossOrigin
     @GetMapping("/")
     public List<MetaAtuarial> buscarTodos(){
         return metaAtuarialService.buscarTodos();
     }
-
+    @CrossOrigin
     @PostMapping("/")
     public MetaAtuarial inserir(@RequestBody MetaAtuarial metaAtuarial){
         return metaAtuarialService.inserir(metaAtuarial);
     }
 
+    @CrossOrigin
     @PutMapping("/")
     public MetaAtuarial alterar(@RequestBody MetaAtuarial metaAtuarial){
         return metaAtuarialService.alterar(metaAtuarial);
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
         metaAtuarialService.excluir(id);
         return ResponseEntity.ok().build();
     }
-
-
 }
