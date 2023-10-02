@@ -56,6 +56,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>6.0.7</version>
 		</dependency>
@@ -73,6 +78,29 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
+<!--		/////////    Se não funcionar, excluir as de baixo ////////// -->
+<!--		<dependency> &lt;!&ndash; Dependencia usada para corrigir o erro do módulo de  JAXB, pois não está mais disponível a partir do Java11 &ndash;&gt;-->
+<!--			<groupId>org.glassfish.jaxb</groupId>-->
+<!--			<artifactId>jaxb-runtime</artifactId>-->
+<!--			&lt;!&ndash;			<version>2.3.0</version>&ndash;&gt;-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>4.0.3</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -82,7 +110,7 @@
 				<version>5.5.2</version>
 				<configuration>
 					<activeRecipes>
-						<recipe>org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_0</recipe>
+						<recipe>org.openrewrite.java.spring.security6.RemoveFilterSecurityInterceptorOncePerRequest</recipe>
 					</activeRecipes>
 				</configuration>
 				<dependencies>

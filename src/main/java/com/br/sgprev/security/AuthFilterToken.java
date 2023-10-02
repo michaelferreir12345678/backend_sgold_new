@@ -2,7 +2,6 @@ package com.br.sgprev.security;
 
 import java.io.IOException;
 
-import com.br.sgprev.security.JwtUtil;
 import com.br.sgprev.service.PessoaDetailService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -16,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 
 public class AuthFilterToken extends OncePerRequestFilter{
 
